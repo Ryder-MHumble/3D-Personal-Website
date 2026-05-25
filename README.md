@@ -40,6 +40,3 @@ npm run build
 - Email: `mhumble010221@gmail.com`
 - GitHub: `https://github.com/Ryder-MHumble`
 - Bilibili: `https://space.bilibili.com/296920670`
-
-如果部署到新的自定义域名，需要同步更新 `index.html` 中的 canonical / Open Graph URL，以及 legal / privacy 页面中的网站地址。
-# 3D-Personal-Website
