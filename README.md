@@ -2,14 +2,6 @@
 
 Ryder Sun 的个人作品集网站，用于展示 AI 产品经理方向的经历、项目案例与产品判断能力。网站内容围绕 Agent 系统、MCP 工具、ChatBI、信息引擎、招聘 Agent 与科研算法产品化等方向展开。
 
-## 网站定位
-
-- 个人品牌主页：Ryder Sun / 孙铭浩
-- 角色定位：AI Product Manager & Agent Builder
-- 内容重点：AI 产品策略、Agent 架构、可运行原型、业务工作流落地
-- 展示语言：英文 / 中文
-- 联系入口：GitHub、Bilibili、Email
-
 ## 内容结构
 
 - 首页：姓名、职位、动态介绍、个人简介与联系方式
@@ -44,11 +36,10 @@ npm run build
 
 ## 维护信息
 
-- Owner: Ryder Sun / 孙铭浩
+- Owner: Ryder Sun
 - Email: `mhumble010221@gmail.com`
 - GitHub: `https://github.com/Ryder-MHumble`
 - Bilibili: `https://space.bilibili.com/296920670`
-- Default site URL: `https://ryder-mhumble.github.io/portfolio-2025/`
 
 如果部署到新的自定义域名，需要同步更新 `index.html` 中的 canonical / Open Graph URL，以及 legal / privacy 页面中的网站地址。
 # 3D-Personal-Website
