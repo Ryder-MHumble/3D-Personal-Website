@@ -27,6 +27,8 @@
   "switch-language": "Switch language",
   "next-project": "Next Project",
   "privacy": "Privacy",
+  "project-reports": "GitHub analysis reports",
+  "project-reports-description": "Open my deep-dive reports on notable GitHub projects",
   "projects": "Projects",
   "selected": "Selected",
   "services": "Focus",
@@ -37,5 +39,7 @@
   "source-code": "Source Code",
   "switch-to-project": "Switch to project {project}",
   "version": "Version",
+  "view-all-projects": "View all projects",
+  "view-project-reports": "View GitHub reports",
   "view-project": "View project"
 }

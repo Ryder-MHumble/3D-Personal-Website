@@ -11,13 +11,13 @@ export default {
   tags: ["research", "pytorch", "python", "ai"],
   source: "https://github.com/Ryder-MHumble/LPS-YOLO",
   description:
-    "A lightweight UAV remote-sensing object detection algorithm published in Scientific Reports, targeting small-object detection accuracy and deployment efficiency.<br/><br/>The portfolio page keeps the original project's research metrics and frames the visuals as concept/structure illustrations rather than claiming they are paper figures.",
+    "A research project that shaped how I connect algorithms with product judgment. It addresses small, dense, and scale-varying objects in UAV remote-sensing imagery with lightweight feature enhancement and detection modules, improving accuracy while keeping deployment cost in view.<br/><br/>The work was published in Scientific Reports and evaluated on datasets such as VisDrone and DOTAv2. This page preserves the research metrics and uses privacy-safe structural visuals rather than claiming to show original paper figures.",
   components: [
     {
       type: "text",
       props: {
         title: "Research Problem",
-        text: "UAV remote-sensing images contain small, dense, and scale-varying targets. The model needed to improve feature extraction for small objects while reducing parameter cost enough for practical deployment.",
+        text: "Remote-sensing detection is not just about chasing benchmark numbers: UAV platforms have limited compute, while targets are small and dense. Every architectural change needs to answer both “is it more accurate?” and “is it still deployable?” This project trained my sensitivity to the tradeoff between feature preservation, multi-scale fusion, and lightweight deployment.",
       },
     },
     {

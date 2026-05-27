@@ -127,32 +127,37 @@ const EXPERIENCE_EN = [
     company: "ZGC AI Institute",
     role: "AI PM Intern",
     signal: "DeanAgent stack · 9 dimensions / 134 sources",
+    detail: "Defined source scoring, crawler acceptance checks, API contracts, daily push workflows, scholar graph views, and NanoBot access so 109 active sources became reusable decision assets.",
   },
   {
     period: "2025.6 - 2025.8",
     company: "Meituan Infrastructure",
     role: "Product Manager Intern",
     signal: "8 MCP Servers · 35 internal tools",
+    detail: "Wrapped local MCP Servers into auditable intranet APIs, normalized request and error contracts, then designed Agent-based vitality tests for whether tools truly solve tasks.",
   },
   {
     period: "2024.4 - 2025.6",
     company: "Zhipu AI",
     role: "Product Manager Intern",
     signal: "Recruiting flow 3h -> under 20min",
+    detail: "Designed recruiting Agents across Boss, Feishu, OA, and Qingyan with checkpoints, exception recovery, HR review surfaces, plus ChatBI query datasets with 100% scenario selection accuracy.",
   },
   {
     period: "2024.11 - 2025.4",
     company: "Meituan AI Product",
     role: "LLM Platform PM Intern",
     signal: "AIPC assistant · 20K+ internal usage",
+    detail: "Shipped MCP client interaction, server configuration flows, and DeepSearch research loops that connected local device actions, tool calls, citations, and LLM execution.",
   },
   {
     period: "2024.5 - 2024.11",
     company: "JIDU / Zhongke Huizhou",
     role: "AI Product & Algorithm PM",
     signal: "Data platform, CV labeling, YOLO research",
+    detail: "Owned PRDs, prototypes, tests, customer feedback, active-learning labeling, data-platform migration, and lightweight YOLO research with measurable annotation and training outcomes.",
   },
-] as const satisfies { period: string; company: string; role: string; signal: string }[];
+] as const satisfies { period: string; company: string; role: string; signal: string; detail: string }[];
 
 const EXPERIENCE_ZH = [
   {
@@ -160,32 +165,37 @@ const EXPERIENCE_ZH = [
     company: "中关村人工智能研究院",
     role: "AI 产品经理实习生",
     signal: "DeanAgent 项目簇 · 9维度 / 134信源",
+    detail: "定义信源评分、爬虫验收、API 契约、日报推送、人才图谱与 NanoBot 入口，让 109 个启用信源沉淀为可复用的决策资产。",
   },
   {
     period: "2025.6 - 2025.8",
     company: "美团基础技术部",
     role: "产品经理实习生",
     signal: "8个 MCP Server · 35个内部 Tool",
+    detail: "把 Local MCP Server 封装成可审计的内网 API，统一请求、错误与权限边界，并设计 Agent 化活性测试判断工具是否真正完成任务。",
   },
   {
     period: "2024.4 - 2025.6",
     company: "北京智谱科技",
     role: "产品经理实习生",
     signal: "招聘流程 3h -> 20min 内",
+    detail: "设计 Boss、飞书、OA、智谱清言间的招聘 Agent 链路，补齐节点校验、异常回退、HR 复核，并构造 ChatBI 查询数据集。",
   },
   {
     period: "2024.11 - 2025.4",
     company: "美团智能产品部",
     role: "LLM 平台产品经理实习生",
     signal: "AIPC 助手 · 2W+ 内部使用量",
+    detail: "落地 MCP 客户端交互、Server 配置流与 DeepSearch 研究链路，把本地设备操作、工具调用、引用生成和 LLM 执行连接起来。",
   },
   {
     period: "2024.5 - 2024.11",
     company: "集度汽车 / 中科汇洲",
     role: "AI 产品与算法产品实习",
     signal: "数据平台、CV 标注、YOLO 科研",
+    detail: "覆盖 PRD、原型、测试、客户反馈、主动学习标注、数据平台迁移与轻量化 YOLO 研究，用指标闭环推动标注和训练效率提升。",
   },
-] as const satisfies { period: string; company: string; role: string; signal: string }[];
+] as const satisfies { period: string; company: string; role: string; signal: string; detail: string }[];
 
 const experiences = computed(() => {
   return locale.value === "zh" ? EXPERIENCE_ZH : EXPERIENCE_EN;
@@ -225,6 +235,7 @@ const experiences = computed(() => {
               <p class="box-services-role">{{ experience.role }}</p>
             </div>
             <p class="box-services-signal">{{ experience.signal }}</p>
+            <p class="box-services-detail">{{ experience.detail }}</p>
           </div>
         </div>
         <p class="box-services-footer">{{ t("experience-footer") }}</p>
@@ -243,19 +254,19 @@ const experiences = computed(() => {
   left: var(--space-outer);
 
   @include mixins.landscape {
-    width: 480px;
-    max-width: calc(var(--svw) * 37);
+    width: 520px;
+    max-width: calc(var(--svw) * 40);
     padding-left: var(--line-length);
     position: relative;
     left: 0;
     bottom: 0;
     padding-top: 3px;
-    transform: translate(0, -50%);
+    transform: translate(0, -42%);
   }
 
   @include mixins.landscape-large {
-    width: 380px;
-    max-width: calc(var(--svw) * 36);
+    width: 460px;
+    max-width: calc(var(--svw) * 39);
   }
 
   &::after,
@@ -339,6 +350,7 @@ const experiences = computed(() => {
   &-period,
   &-role,
   &-signal,
+  &-detail,
   &-footer,
   &-status {
     font-size: var(--font-size-xs);
@@ -394,8 +406,8 @@ const experiences = computed(() => {
     position: relative;
     display: grid;
     grid-template-columns: 12px minmax(0, 1fr);
-    gap: 7px var(--space-xs);
-    padding: 7px 8px 7px 0;
+    gap: 4px var(--space-xs);
+    padding: 7px 8px 8px 0;
     border: var(--stroke-sm) solid rgba(107, 255, 246, 0.14);
     border-radius: var(--radius-sm);
     background: rgba(2, 19, 26, 0.24);
@@ -406,7 +418,7 @@ const experiences = computed(() => {
   &-dot {
     position: relative;
     z-index: 1;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
     width: 9px;
     height: 9px;
     margin-top: 5px;
@@ -445,6 +457,16 @@ const experiences = computed(() => {
     grid-column: 2;
     color: var(--color-text-cyan-400);
     line-height: 1.25;
+  }
+
+  &-detail {
+    grid-column: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    color: rgba(212, 255, 251, 0.72);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-height: 1.32;
   }
 
   &-footer {

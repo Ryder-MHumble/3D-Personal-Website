@@ -111,7 +111,10 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
     &-vue,
     &-typescript,
     &-pytorch,
-    &-research {
+    &-research,
+    &-flutter,
+    &-dart,
+    &-crawler {
       color: var(--color-text-400);
       border-color: var(--color-grayscale-400);
     }

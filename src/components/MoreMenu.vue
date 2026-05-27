@@ -20,6 +20,7 @@ const menuRef = ref<HTMLElement | null>(null);
 const soundState = computed(() => (soundsEnabled.value && howlerUnlocked.value ? "On" : "Off"));
 const githubUrl = computed(() => social.find((item) => item.name === "github")?.url ?? "");
 const bilibiliUrl = computed(() => social.find((item) => item.name === "bilibili")?.url ?? "");
+const projectReportsUrl = "https://zvwp0lbu2oh.feishu.cn/wiki/HXKxwTvSsiu0W2kuyqnc87QKn95";
 
 const toggleSounds = () => {
   soundsEnabled.value = !soundsEnabled.value;
@@ -74,6 +75,10 @@ onBeforeUnmount(() => {
 
       <a v-if="githubUrl" class="more-menu-row" :href="githubUrl" target="_blank" rel="noopener noreferrer" role="menuitem">
         <span>GitHub</span>
+        <strong>↗</strong>
+      </a>
+      <a class="more-menu-row" :href="projectReportsUrl" target="_blank" rel="noopener noreferrer" role="menuitem">
+        <span>{{ t("project-reports") }}</span>
         <strong>↗</strong>
       </a>
       <a v-if="bilibiliUrl" class="more-menu-row" :href="bilibiliUrl" target="_blank" rel="noopener noreferrer" role="menuitem">

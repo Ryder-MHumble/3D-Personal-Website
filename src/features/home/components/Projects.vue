@@ -2,15 +2,19 @@
 import { ref, watch, onMounted } from "vue";
 import { previews } from "../../../content/projects/previews";
 import { locale } from "../../../i18n/store";
-import PreviewCard from "../../projects/components/PreviewCard.vue";
 import NotchSection from "../../../components/NotchSection.vue";
 import Banner from "../../../components/Banner.vue";
+import Button from "../../../components/Button.vue";
+import Link from "../../../components/Link.vue";
 import { t } from "../../../i18n/utils/translate";
 import { isFeatureEnabled } from "../../../utils/features";
+import { social } from "../../../content/social";
+import ProjectsCarousel from "./ProjectsCarousel.vue";
 
 import type { ProjectPreview } from "../../../content/types";
 
 const loadedPreviews = ref<ProjectPreview[] | null>(null);
+const allProjectsUrl = social.find((item) => item.name === "github")?.url ?? "";
 
 const emit = defineEmits<{
   (e: "loaded", previews: ProjectPreview[]): void;
@@ -39,13 +43,24 @@ onMounted(loadPreviews);
         <Banner class="projects-title-banner" :copy="t('selected')" size="sm" animated />
         <h2 class="projects-title-copy">{{ t("projects") }}</h2>
       </div>
+      <Link
+        v-if="allProjectsUrl"
+        class="projects-all"
+        external
+        :href="allProjectsUrl"
+        data-cursor="arrow-external"
+        :aria-label="t('view-all-projects')"
+      >
+        <Button renderAs="div" variant="accent" size="md" data-hoversound="hover">
+          {{ t("view-all-projects") }}
+        </Button>
+      </Link>
     </div>
-    <div class="grid">
-      <div class="projects-cards">
-        <PreviewCard v-for="preview in loadedPreviews" :key="preview.title" :preview="preview" />
-        <PreviewCard v-if="isFeatureEnabled('startProject')" />
-      </div>
-    </div>
+    <ProjectsCarousel
+      v-if="loadedPreviews"
+      :previews="loadedPreviews"
+      :show-start-card="isFeatureEnabled('startProject')"
+    />
   </div>
 </template>
 
@@ -134,25 +149,18 @@ onMounted(loadPreviews);
     }
   }
 
-  &-cards {
-    max-width: 100%;
-    flex: 1;
-    grid-column: 1 / span 12;
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  &-all {
+    grid-column: 1 / 13;
+    width: fit-content;
 
     @include mixins.mq("md") {
-      grid-column: 1 / span 12;
+      grid-column: 9 / 13;
+      align-self: end;
+      justify-self: end;
     }
 
-    @include mixins.mq("lg") {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-column: 3 / span 8;
-    }
-
-    @include mixins.mq("xl") {
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    :deep(.button) {
+      box-shadow: 0 16px 36px rgba(255, 132, 0, 0.24);
     }
   }
 }

@@ -183,10 +183,9 @@ const getInTouchClassNames = computed(() => {
     display: flex;
   }
 
-  &-dark &-lang-switch {
-    :deep(.button-wrapper-border) {
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(5, 46, 135, 0.62);
+  &-dark {
+    :deep(.header-lang-switch.button-wrapper-theme) {
+      background: rgba(5, 46, 135, 0.72);
       color: var(--color-white-400);
       --icon-color: var(--color-white-400);
     }

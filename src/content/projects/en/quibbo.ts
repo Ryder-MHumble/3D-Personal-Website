@@ -10,13 +10,13 @@ export default {
   theme: "dark",
   tags: ["agent", "llm", "product", "react"],
   description:
-    "A Zhipu AI delivery project that connected Boss, Feishu, OA workflows, and Zhipu Qingyan into a full-process intelligent recruiting system.<br/><br/>The system used rule constraints plus LLM planning to make HR workflows more automated, auditable, and exception-aware.",
+    "A Zhipu delivery project that embeds Agent capability into real HR operations. I designed the recruiting Multi-Agent product framework connecting Boss, Feishu, OA workflows, and Zhipu Qingyan across screening, messaging, scheduling, status sync, and exception handling.<br/><br/>The point was not to make a chatbot; every Agent action needed a trigger, permission boundary, human review surface, rollback path, and execution record, reducing a typical recruiting flow from about 3 hours to under 20 minutes.",
   components: [
     {
       type: "text",
       props: {
         title: "Why It Mattered",
-        text: "Recruiting operations involved repeated screening, scheduling, status syncing, and cross-platform handoffs. The product challenge was not just prompting an LLM, but designing a dependable Agent workflow with checkpoints, failure handling, and human override.",
+        text: "Recruiting operations naturally span platforms, roles, and time-sensitive handoffs, so missing context is easy. My approach was to separate responsibilities between candidates, HR, systems, and models first, then decompose screening, messaging, scheduling, status sync, and exception alerts into Agent nodes that operate inside a controlled workflow.",
       },
     },
     {

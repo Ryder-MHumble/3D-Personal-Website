@@ -7,10 +7,11 @@ import { onMounted, onUnmounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonRound from "../../../components/ButtonRound.vue";
 import { t } from "../../../i18n/utils/translate";
-import { social } from "../../../content/social";
 import Plus from "../../../components/icons/Plus.vue";
 
 import type { ProjectPreview } from "../../../content/types";
+
+const projectReportsUrl = "https://zvwp0lbu2oh.feishu.cn/wiki/HXKxwTvSsiu0W2kuyqnc87QKn95";
 
 const tlRef = ref<gsap.core.Timeline | null>(null);
 const wrapperRef = ref<HTMLDivElement | null>(null);
@@ -85,14 +86,16 @@ onUnmounted(() => {
     data-cursor="arrow-external"
     data-hoversound="hover"
     external
-    :href="social[0].url"
+    :href="projectReportsUrl"
+    :aria-label="t('view-project-reports')"
   >
     <div class="preview-card-top preview-card-top-empty">
       <Plus class="preview-card-top-empty-icon" />
     </div>
     <div class="preview-card-content">
       <div class="preview-card-copys">
-        <h3 class="preview-card-title">{{ t("start-a-new-project") }}</h3>
+        <h3 class="preview-card-title">{{ t("view-project-reports") }}</h3>
+        <p class="preview-card-description">{{ t("project-reports-description") }}</p>
       </div>
     </div>
   </Link>

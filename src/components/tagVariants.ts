@@ -24,7 +24,10 @@ export type TagVariant =
   | "llm"
   | "research"
   | "pytorch"
-  | "mlops";
+  | "mlops"
+  | "flutter"
+  | "dart"
+  | "crawler";
 
 export const tagLabels = {
   three: "Three.js",
@@ -53,4 +56,7 @@ export const tagLabels = {
   research: "Research",
   pytorch: "PyTorch",
   mlops: "MLOps",
+  flutter: "Flutter",
+  dart: "Dart",
+  crawler: "Crawler",
 } as const satisfies Record<TagVariant, string>;
