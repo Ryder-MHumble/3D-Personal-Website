@@ -13,7 +13,7 @@ import { getSoundsHowl } from "../utils/sounds";
 import type { SoundKey } from "../types";
 
 export const howlerUnlocked = ref(false);
-export const soundsEnabled = ref(false);
+export const soundsEnabled = ref(true);
 
 Howler.volume(0);
 
@@ -30,13 +30,7 @@ export const useHowler = () => {
       return;
     }
 
-    const storeItem = localStorage.getItem("portfolio-soundsEnabled");
-    if (storeItem) {
-      soundsEnabled.value = storeItem === "true";
-    } else {
-      soundsEnabled.value = true;
-      localStorage.setItem("portfolio-soundsEnabled", "true");
-    }
+    soundsEnabled.value = true;
   };
 
   const tick = () => {
@@ -67,11 +61,14 @@ export const useHowler = () => {
     }
   };
 
-  watch(soundsEnabled, (newVal) => {
-    if (!isFeatureEnabled("sounds") || isTouch.value) return;
-    enabledVolume.value = newVal ? 1 : 0;
-    localStorage.setItem("portfolio-soundsEnabled", newVal.toString());
-  });
+  watch(
+    soundsEnabled,
+    (newVal) => {
+      if (!isFeatureEnabled("sounds") || isTouch.value) return;
+      enabledVolume.value = newVal ? 1 : 0;
+    },
+    { immediate: true },
+  );
 
   const loadAllSounds = () => {
     for (const sound of Object.keys(sounds) as SoundKey[]) {
@@ -85,10 +82,6 @@ export const useHowler = () => {
   onMounted(() => {
     if (!isFeatureEnabled("sounds")) return;
     Howler.volume(0);
-
-    if (howlerUnlocked.value) {
-      soundsEnabled.value = localStorage.getItem("portfolio-soundsEnabled") === "true";
-    }
 
     gsap.ticker.add(tick);
     window.addEventListener("visibilitychange", handleVisibilityChange);

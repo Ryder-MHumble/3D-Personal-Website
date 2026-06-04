@@ -5,7 +5,7 @@ import LangSwitch from "./LangSwitch.vue";
 import MoreDots from "./icons/MoreDots.vue";
 import { t } from "../i18n/utils/translate";
 import { social } from "../content/social";
-import { soundsEnabled, howlerUnlocked } from "../features/sounds/composables/useHowler";
+import { soundsEnabled } from "../features/sounds/composables/useHowler";
 import { isFeatureEnabled } from "../utils/features";
 import { useAgent } from "../composables/useAgent";
 
@@ -17,7 +17,7 @@ const { isTouch } = useAgent();
 const open = ref(false);
 const menuRef = ref<HTMLElement | null>(null);
 
-const soundState = computed(() => (soundsEnabled.value && howlerUnlocked.value ? "On" : "Off"));
+const soundState = computed(() => (soundsEnabled.value ? "On" : "Off"));
 const githubUrl = computed(() => social.find((item) => item.name === "github")?.url ?? "");
 const bilibiliUrl = computed(() => social.find((item) => item.name === "bilibili")?.url ?? "");
 const projectReportsUrl = "https://zvwp0lbu2oh.feishu.cn/wiki/HXKxwTvSsiu0W2kuyqnc87QKn95";
