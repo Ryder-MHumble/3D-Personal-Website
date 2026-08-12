@@ -1,226 +1,56 @@
-# AI Image Prompts for Current Project Covers and Detail Images
+# Qwen Image Prompts for Projects
 
-Updated: 2026-05-27
+Updated: 2026-08-12
 
-This document stores the AI image prompts and cover-source notes for the projects currently shown in the portfolio. Each project uses one cover image and three detail/explanation images.
+The Projects section contains the six highest-star public, non-fork repositories under `Ryder-MHumble`, ordered by GitHub stars at the time of the update. Every project uses three Qwen-generated 16:9 assets: a cover, a chapter visual, and a system or product diagram.
 
-## Global Rules
+## Generation settings
 
-- Aspect ratio: 16:9 for cover and detail images unless a repository-provided cover has its own ratio.
-- Style: premium portfolio case-study visuals, product/research credible, not generic stock art.
-- Privacy: do not include private dashboards, private user data, real internal screenshots, confidential documents, or real company logos unless they are already public repository assets.
-- Text: avoid readable text in generated explanation images; repository-provided banners/logos may keep their original text.
-- Negative prompt: low resolution, blurry, distorted UI, messy layout, watermark, stock photo, irrelevant brand logo, private data, excessive text.
+- Model: `qwen-image`
+- Size: `1536x1024`
+- Steps: `35`
+- CFG: `4`
+- Output: PNG
+- Shared negative direction: no watermark, no third-party logos, no private data, no copied screenshots, no generic AI brain or robot motifs, no readable text unless explicitly required.
 
-## Current Project List
+## Meldwork · 54 stars
 
-Removed from the public project list: DeanAgent Information Engine, MCP Server API Layer, ChatBI & DeepSearch Agents.
+- Cover · seed `3101`: `16:9 premium portfolio cover for Meldwork, a local-first desktop workspace for persistent multi-agent work. A calm dark charcoal desktop command room seen in three-quarter perspective, one continuous warm paper task thread flowing through several distinct agent workstations, attachments and permission gates represented as tangible trays and switches, restrained coral signal lights, tactile anodized metal and smoked glass, sophisticated product editorial rendering, strong central composition, no people, no robots, no AI brain, no readable text, no logos, no watermark, no purple gradient.`
+- Chapter · seed `3201`: `16:9 cinematic chapter image for a local-first multi-agent workspace. A single continuous ribbon of warm paper and file attachments travels from one dark desktop workstation to another through physical permission gates, while each workstation has a different abstract tool shape. Restrained coral and amber signals, charcoal metal room, sophisticated editorial 3D rendering. No screens facing camera, no letters, no words, no numbers, no logos, no watermark.`
+- Diagram · seed `3301`: `16:9 clean system architecture illustration for a local-first multi-agent workspace, dark charcoal background. Left: one durable task container holding file, image, audio and permission symbols. Center: a bounded orchestration harness with checkpoint, stop and review controls. Right: several isolated agent runtime blocks connected by one-way scoped context paths; below them a local evidence ledger returns to a human decision surface. Coral and warm amber accents, precise geometric diagram, no text, no letters, no numbers, no logos, no watermark, no brain, no robots.`
 
-Current projects: Recruiting Multi-Agent System, LPS-YOLO Research, Realm 3D Agent Workspace, EvoLabeler AI-Agent MLOps, ScholarSentry Academic Intelligence, Guameow AI Fortune App, Doc2Brief Report Generator, Intelligence Engine Data Base.
+## Realm · 26 stars
 
-## Cover Source Mapping
+- Cover · seed `3104`: `16:9 premium portfolio cover for Realm, a real-time 3D observability workspace for coding agents. Isometric living workshop made of six clean hexagonal zones, tiny abstract worker silhouettes moving between bookshelf, writing desk, terminal, scanner antenna and portal stations, tool events shown as precise cyan trails and amber status pulses, deep ink-blue environment, polished game-like 3D product visualization, readable spatial hierarchy, no readable text, no logos, no watermark, avoid purple dominance.`
+- Chapter · seed `3202`: `16:9 cinematic chapter image for real-time coding-agent observability. Close view across several separated hexagonal workshop zones, abstract worker figures moving between bookshelf, desk, terminal, scanner and portal, cyan tool-event trails with amber error and completion pulses, deep ink-blue 3D scene, clear spatial storytelling. No letters, words, numbers, logos or watermark.`
+- Diagram · seed `3302`: `16:9 clean system architecture illustration for a real-time 3D agent workspace, deep ink-blue background. External task portal flows into a routing hub, then branches into six isolated hex zones with distinct tool stations; event trails return to a central activity map and callback portal. Cyan paths, amber status pulses, isometric technical diagram with clear flow direction. No text, letters, numbers, logos or watermark.`
 
-- Doc2Brief: use `Banner.png` from `Ryder-MHumble/Doc2Brief` as the cover.
-- ScholarSentry: use the attached ScholarSentry academic-intelligence cover as the cover reference.
-- Guameow: use the attached Guameow pastel cat mobile-app cover as the cover reference.
-- Realm: use `Realm-Logo.png` from `Ryder-MHumble/Realm` as the cover.
-- EvoLabeler AI-Agent MLOps: use the attached cyan-green active-learning MLOps cover as the cover reference.
-- Intelligence Engine Data Base: use `NEXUS-Banner.png` from `Ryder-MHumble/Nexus` as the cover.
+## EvoLabeler-AIAgent-MLOps · 15 stars
 
----
+- Cover · seed `3401`: `Wide 3:2 portfolio cover image, remote-sensing machine-learning production laboratory, a wall of colorful aerial heatmap tiles, a physical sorting table selecting uncertain image samples, a compact sealed training chamber, and a separate evaluation console represented only by colored bars and curves. Teal industrial metal, forest green shadows, muted gold light, realistic cinematic product scene, no circular composition, no brain, no robot, no person, no typography, no labels, no interface text, no symbols resembling letters, no watermark.`
+- Chapter · seed `3203`: `16:9 cinematic chapter image for remote-sensing active learning. A clean annotation workbench overlooks a wall of aerial tiles; uncertain samples glow as heatmaps, selected tiles move into a labeling tray and then toward a compact training chamber. Teal, forest green and muted gold industrial laboratory aesthetic. No brain, no robots, no humanoids, no readable screens, no letters, words, numbers, logos or watermark.`
+- Diagram · seed `3402`: `Wide 3:2 abstract system illustration with six physical stations connected in a closed loop: aerial dataset tray, glowing uncertainty filter, annotation table, sealed model-training chamber, evaluation prism, and next-sample conveyor returning to the first station. Teal and muted gold on dark forest charcoal, clean geometric industrial miniature, completely pictorial. No screens, no cards, no labels, no typography, no letters, no numbers, no brain, no robots, no humans, no watermark.`
 
-## 1. Recruiting Multi-Agent System
+## Scholars-System · 9 stars
 
-- Slug: `quibbo`
-- Theme: HR agent operations, magenta, cyan, warm white, controlled automation, human review.
-- Suggested files: `quibbo-cover`, `quibbo-detail-1`, `quibbo-detail-2`, `quibbo-detail-3`
+- Cover · seed `3110`: `16:9 premium portfolio cover for an academic intelligence and scholar graph product. Dark indigo research observatory with a luminous world map wall, anonymous scholar nodes, paper-shaped cards, institutions and citation arcs organized with clear hierarchy, restrained antique gold and cool blue highlights, elegant editorial data visualization with depth. Absolutely no letters, no words, no numbers, no logos, no watermark, no real faces.`
+- Chapter · seed `3204`: `16:9 cinematic chapter image for academic intelligence. Anonymous profile medallions, blank paper cards and institution blocks form a layered scholarly knowledge graph above a dark indigo archive table, with gold citation threads and cool-blue monitoring pulses. Elegant research observatory aesthetic. All cards blank, no letters, words, numbers, logos, seals or watermark.`
+- Diagram · seed `3404`: `Wide 3:2 pictorial academic intelligence architecture. On the left, plain paper sheets and archive boxes flow as golden particles into a central crystalline network of anonymous profile silhouettes, institution buildings and topic spheres; on the right, three blank alert lights and blank profile frames receive cool-blue pulses. Dark indigo background, antique gold connections, clean museum-quality information sculpture. No writing on paper, no labels, no typography, no letters, no numbers, no seals, no watermark.`
 
-### Cover Prompt
+## Guameow · 8 stars
 
-Create a 16:9 cover for a recruiting Multi-Agent platform. Show several friendly AI agent nodes coordinating resumes, candidate chat messages, interview calendars, OA approval flows, HR review checkpoints, and exception alerts. The system should feel operational and trustworthy rather than like a chatbot demo. Magenta-cyan enterprise SaaS style, clean glass panels, warm highlights, no readable text, no real platform logos.
+- Cover · seed `3121`: `16:9 premium portfolio cover for a Gen-Z cat fortune mobile app. One elegant tilted smartphone with a blank graphical interface showing only color blocks, icons and a single original cat oracle illustration, surrounded by a daily card, moon tokens, lucky-color swatches and small ritual objects on a blush studio set. Pastel pink, lavender and warm gold, crisp consumer product photography, cute but sophisticated. Absolutely no letters, words, numbers, logos or watermark.`
+- Chapter · seed `3205`: `16:9 cinematic chapter image for a playful daily cat fortune ritual. An original cat oracle sits beside a phone with a completely blank pastel card interface, moon tokens, lucky-color swatches, a small reminder bell and a daily card turning over in sequence. Soft blush, lavender and warm gold, polished consumer product illustration. No letters, words, numbers, logos or watermark.`
+- Diagram · seed `3403`: `Wide 3:2 pictorial product journey for a playful cat fortune mobile app. Five pastel smartphones arranged along a curved path; each screen contains only one large simple icon: paw entrance, moon card, cat speech bubble, small bell, guiding star. One original illustrated cat oracle walks beside the path. Soft blush, lavender, warm gold, polished consumer product board, spacious composition. No headings, no captions, no labels, no tiny interface details, no letters, no numbers, no watermark.`
 
-### Detail 1 Prompt
+## TDA-YOLO · 7 stars
 
-Show a 16:9 workflow where multiple AI agents are mapped to resume screening, candidate messaging, interview scheduling, OA status synchronization, and exception handling. Include clear trigger points, human-in-the-loop review surfaces, fallback routes, and execution records. Magenta and cyan nodes, elegant process visualization, no readable text.
+- Cover · seed `3116`: `16:9 premium portfolio cover for TDA-YOLO adaptive UAV remote-sensing detection. High-resolution aerial city and port mosaic with many tiny vehicles and objects, precise red and blue detection overlays, a compact adaptive model core hovering beside feature maps, scientific editorial composition on clean white and pale gray, realistic research visualization, no readable text, no copied paper figure, no watermark.`
+- Chapter · seed `3206`: `16:9 cinematic chapter image for adaptive UAV remote-sensing detection. Low-altitude drone view over dense roads and port containers, tiny targets highlighted with clean red-blue boxes and confidence halos, foreground shows layered feature maps retaining fine spatial detail. Scientific editorial realism, white and pale gray framing. No letters, words, numbers, logos or watermark.`
+- Diagram · seed `3306`: `16:9 clean scientific architecture illustration for TDA-YOLO on a white background. Aerial feature tiles flow through three visually distinct modules: adaptive weighted downsampling that preserves fine cells, dynamic upsampling with offset arrows, and a deformable dynamic detection head sampling irregular target shapes; outputs show dense small-object boxes. Muted red and blue, precise paper-quality diagram with depth. No text, letters, numbers, logos or watermark, not copied from any paper.`
 
-### Detail 2 Prompt
+## Review notes
 
-Generate a 16:9 integration diagram connecting a job board, Feishu-like chat, OA workflow system, calendar service, and LLM assistant through a central orchestration layer. Include permission boundaries, state sync, manual approval gates, and recovery paths for failed tasks. Use magenta-cyan glassmorphism and abstract app icons, no real logos or readable labels.
-
-### Detail 3 Prompt
-
-Create a 16:9 HR control cockpit concept showing candidate pipeline status, agent action history, risk alerts, interview scheduling suggestions, and one-click human approval controls. Use soft enterprise UI panels, magenta-cyan highlights, structured layout, privacy-safe candidate cards without real names, no readable text.
-
----
-
-## 2. LPS-YOLO Research
-
-- Slug: `pokedex`
-- Theme: UAV remote sensing, lightweight detection, red, blue, white, scientific report polish.
-- Suggested files: `pokedex-cover`, `pokedex-detail-1`, `pokedex-detail-2`, `pokedex-detail-3`
-
-### Cover Prompt
-
-Create a 16:9 cover for lightweight UAV remote-sensing object detection. Show aerial image tiles, tiny object bounding boxes, adaptive sampling modules, feature pyramids, and a compact YOLO model core. The image should connect academic research with deployable AI product thinking. Clean research-product visual, red-blue accent, high clarity, no readable text, no copied paper figures.
-
-### Detail 1 Prompt
-
-Draw a 16:9 remote-sensing feature pipeline showing lightweight adaptive downsampling, multi-scale feature fusion, spatial detail preservation, and detection head refinement across aerial image features. Use polished academic diagram aesthetics with modern depth and lighting. Red-blue accents, no readable module text, no real dataset screenshots.
-
-### Detail 2 Prompt
-
-Generate a 16:9 ablation-study concept image where multiple model modules light up across a VisDrone/DOTAv-style aerial scene. Show small object clusters becoming clearer after feature enhancement, while parameter and computation blocks shrink visually. Academic but premium, red-blue-white palette, no readable labels.
-
-### Detail 3 Prompt
-
-Create a 16:9 deployment-oriented visual showing how model improvements translate into smaller computation, better small-object detection, and more practical UAV analysis workflows. Include a drone, edge device, compact model core, detection overlays, and performance tradeoff cards. Clean scientific product style, no readable text.
-
----
-
-## 3. Realm 3D Agent Workspace
-
-- Slug: `realm`
-- Theme: 3D agent observability, blue, violet, neon, playful spatial interface, Hex Zones.
-- Cover source: `https://github.com/Ryder-MHumble/Realm/blob/main/public/Realm-Logo.png`
-- Suggested files: `realm-cover`, `realm-detail-1`, `realm-detail-2`, `realm-detail-3`
-
-### Cover Prompt
-
-Use the public Realm logo as the cover source. If generating a replacement, create a 16:9 cover for Realm, a real-time 3D AI agent workspace. Tiny AI characters move between bookshelf, desk, terminal, scanner, antenna, and portal stations as coding-agent tool calls happen. Add hexagonal session zones, floating event particles, command trails, and a spatial dashboard atmosphere. Blue-violet neon lighting, playful but premium, game-like product observability, no readable text beyond the Realm brand mark.
-
-### Detail 1 Prompt
-
-Create a 16:9 scene showing multiple Hex Zone sessions, each with a distinct agent avatar, task stream, tool station, and visible state. The scene should communicate parallel work without chaos: each zone is separated but connected by subtle handoff lines. Blue-violet spatial UI, glossy 3D isometric style, no readable text.
-
-### Detail 2 Prompt
-
-Create a 16:9 integration diagram showing external systems pushing tasks through a REST API into Realm, routing work to agents, collecting status events, and sending webhook callbacks back to other products. Use neon blue-violet data paths, 3D portal motifs, API gateway blocks, and event-return trails. No readable endpoint names.
-
-### Detail 3 Prompt
-
-Generate a 16:9 visual observability image where file reads, code writes, shell commands, searches, errors, and commits become animated 3D signals around an agent workspace. Show an agent avatar reacting to tool events and a central activity map. Premium game-like dashboard, electric blue and violet, no real source code, no readable text.
-
----
-
-## 4. EvoLabeler AI-Agent MLOps
-
-- Slug: `evolabeler`
-- Theme: remote-sensing MLOps, cyan, green, gold, active learning, agent loop.
-- Cover source: attached cyan-green active-learning MLOps cover.
-- Suggested files: `evolabeler-cover`, `evolabeler-detail-1`, `evolabeler-detail-2`, `evolabeler-detail-3`
-
-### Cover Prompt
-
-Create a 16:9 cover matching the attached EvoLabeler reference: a cyan-green futuristic MLOps screen with satellite or drone image tiles on the left, heatmap overlays and bounding boxes, a glowing AI brain in the center, active-learning arrows circling around it, and a metrics dashboard on the right. Add a thin sci-fi HUD border, teal and gold accents, premium technical product style, minimal readable text.
-
-### Detail 1 Prompt
-
-Show a 16:9 intelligent annotation workspace with remote-sensing image tiles, bounding boxes, segmentation hints, uncertainty heatmaps, and an Agent recommending the next samples to label. Include a clean desktop workbench, dataset cards, and model confidence visualization. Cyan-green technical UI, no real data, no readable labels.
-
-### Detail 2 Prompt
-
-Create a 16:9 training feedback loop image connecting active learning, semi-supervised learning, curriculum learning, YOLO training, validation metrics, and next-iteration selection into one circular workflow. Use glowing arrows, model checkpoints, dataset versions, and quality gates. Cyan-green-gold scientific MLOps style, no readable text.
-
-### Detail 3 Prompt
-
-Generate a 16:9 desktop MLOps cockpit with project workspace, dataset versions, model metrics, export controls, evaluation cards, and experiment history. It should feel like a real product dashboard while remaining abstract and privacy-safe. Premium cyan-green product interface, no readable text, no copied UI.
-
----
-
-## 5. ScholarSentry Academic Intelligence
-
-- Slug: `scholarsentry`
-- Theme: academic intelligence sentry, indigo, gold, world map, scholar graph, research alerts.
-- Cover source: attached ScholarSentry academic-intelligence cover.
-- Suggested files: `scholarsentry-cover`, `scholarsentry-detail-1`, `scholarsentry-detail-2`, `scholarsentry-detail-3`
-
-### Cover Prompt
-
-Create a 16:9 cover matching the attached ScholarSentry reference: a dark blue world map with glowing scholar nodes, institution icons, document cards, curved global connection arcs, and a central shield-like ScholarSentry mark. Use indigo, gold, and cool blue lighting; premium academic intelligence style; centered brand composition; readable brand text is acceptable only for the title mark.
-
-### Detail 1 Prompt
-
-Create a 16:9 scholar relationship map with authors, institutions, papers, topics, co-author links, and citation paths connected through glowing indigo-gold edges. The image should communicate searchable academic knowledge rather than a static paper list. Use abstract cards and profile nodes without readable text.
-
-### Detail 2 Prompt
-
-Generate a 16:9 research monitoring dashboard concept with new-paper alerts, topic movements, institution updates, relevance scoring, and watched scholar signals. Use indigo-gold glass panels, timeline-like motion, notification beacons, and clean hierarchy. No real scholar names, no readable text.
-
-### Detail 3 Prompt
-
-Illustrate a 16:9 system flow where backend crawler data enters a scholar graph, becomes profile cards, and triggers monitoring alerts for users. Show crawler streams, graph database core, scholar cards, and alert pulses. Indigo-gold technical architecture style, no private data, no readable labels.
-
----
-
-## 6. Guameow AI Fortune App
-
-- Slug: `guameow`
-- Theme: Gen-Z AI fortune, cute cats, pink, gold, purple, mobile app, ritual.
-- Cover source: attached Guameow pastel cat mobile-app cover.
-- Suggested files: `guameow-cover`, `guameow-detail-1`, `guameow-detail-2`, `guameow-detail-3`
-
-### Cover Prompt
-
-Create a 16:9 cover matching the attached Guameow reference: pastel pink, lavender, and gold background; a tilted phone in the center showing fortune cards and the Guameow brand; several cute wizard cats around the phone holding tarot-like cards; clouds, stars, hearts, soft sticker details, kawaii but polished consumer-app quality.
-
-### Detail 1 Prompt
-
-Show a 16:9 daily cat fortune generation flow. A user's mood input becomes AI interpretation, fortune card, lucky color, playful suggestion, and a small ritual reminder. Use soft pink-gold mobile UI concept, floating cat mascot, rounded cards, star particles, no readable text.
-
-### Detail 2 Prompt
-
-Generate a 16:9 cute AI companion scene with a cat oracle explaining personalized destiny insights through floating cards, moon symbols, and stars. The tone should be emotional, playful, and warm, while still looking like a high-quality consumer AI product. Kawaii but polished, pink-purple-gold lighting, no readable text.
-
-### Detail 3 Prompt
-
-Create a 16:9 mobile product system image showing onboarding, daily fortune feed, chat interaction, ritual reminders, and personalized guidance as connected phone screens. Use pink-purple gradients, soft glassmorphism, sticker-like cat details, consumer app presentation style, no readable text.
-
----
-
-## 7. Doc2Brief Report Generator
-
-- Slug: `doc2brief`
-- Theme: document-to-report automation, warm paper, lime green, template gallery, Agent-ready CLI.
-- Cover source: `https://github.com/Ryder-MHumble/Doc2Brief/blob/main/data/img/Banner.png`
-- Suggested files: `doc2brief-cover`, `doc2brief-detail-1`, `doc2brief-detail-2`, `doc2brief-detail-3`
-
-### Cover Prompt
-
-Use the public Doc2Brief banner as the cover source. If generating a replacement, create a 16:9 cover for a document-to-weekly-report automation platform. Show files and pasted text flowing into extraction, structuring, automatic template matching, HTML rendering, poster generation, and a reusable share link. Warm paper background, lime-green product accents, clean template cards, Agent-ready CLI feeling, no private document content.
-
-### Detail 1 Prompt
-
-Create a 16:9 workflow image showing PDF, DOCX, TXT, MD, and CSV inputs entering a parser, becoming structured sections, then rendering through stable weekly-report templates. Include document cards, schema blocks, and template thumbnails. Warm paper and lime-green palette, no readable private text.
-
-### Detail 2 Prompt
-
-Generate a 16:9 template gallery concept with nine report styles arranged as premium cards: dashboard, journal, magazine, newspaper, scroll, grid, and briefing layouts. Emphasize that the model structures content while the template system stabilizes visual quality. No readable body text.
-
-### Detail 3 Prompt
-
-Create a 16:9 Agent CLI publishing flow: an automation agent calls generate, receives a report ID and share URL, then calls update to overwrite the same report link. Show terminal-like blocks, arrows, share-link cards, and version continuity. Productive developer-tool aesthetic, warm paper plus green accents, no real command secrets.
-
----
-
-## 8. Intelligence Engine Data Base
-
-- Slug: `intelligence-engine-db`
-- Theme: backend data infrastructure, green, cyan, dark slate, crawler network, knowledge vault.
-- Cover source: `https://github.com/Ryder-MHumble/Nexus/blob/main/docs/NEXUS-Banner.png`
-- Suggested files: `intelligence-engine-db-cover`, `intelligence-engine-db-detail-1`, `intelligence-engine-db-detail-2`, `intelligence-engine-db-detail-3`
-
-### Cover Prompt
-
-Use the public NEXUS banner as the cover source. If generating a replacement, create a 16:9 cover for Intelligence Engine Data Base: many abstract crawler spiders and data collectors gather policy pages, papers, social posts, external feeds, and scholar knowledge into a PostgreSQL-like knowledge vault. Use green-cyan backend infrastructure style, dark slate background, glowing database core, no readable text, no real websites.
-
-### Detail 1 Prompt
-
-Draw a 16:9 multi-source ingestion pipeline with static pages, dynamic pages, RSS feeds, paper databases, social signals, and external datasets normalized into a shared schema. Include validation gates, transformation nodes, and storage layers. Green-cyan technical diagram style, premium backend architecture, no readable labels.
-
-### Detail 2 Prompt
-
-Create a 16:9 crawler management image showing source health, scheduling rhythm, retry paths, storage status, and data validation gates. The image should feel like backend observability for a serious information engine. Use green-cyan glow, dark dashboard panels, abstract status indicators, no readable logs or private URLs.
-
-### Detail 3 Prompt
-
-Generate a 16:9 API consumption layer visual where DeanAgent-style intelligence products, ScholarSentry, daily briefings, project report analysis, and other upper-layer products all call the same backend data service. Show a central data vault with REST API streams branching to multiple product surfaces. Green-cyan architecture, privacy-safe, no readable text.
+- Qwen may still render incidental pseudo-text inside tiny document or phone details even when explicitly prohibited. The selected assets keep this away from the primary message, and all factual explanation remains in the portfolio copy and captions.
+- EvoLabeler required three cover iterations because earlier results used a generic AI-brain motif and readable pseudo-text.
+- Guameow required a second cover generation because the first result placed a fabricated title on the phone screen; its diagram and the Scholars System diagram were also regenerated to remove pseudo-text.

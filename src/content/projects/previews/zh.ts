@@ -1,61 +1,47 @@
-import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
-import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
-import thumbnailRealm from "../../../assets/thumbnails/realm-cover.png";
-import thumbnailEvolabeler from "../../../assets/thumbnails/evolabeler-cover.png";
-import thumbnailScholarSentry from "../../../assets/thumbnails/scholarsentry-cover.png";
-import thumbnailGuameow from "../../../assets/thumbnails/guameow-cover.png";
-import thumbnailDoc2Brief from "../../../assets/thumbnails/doc2brief.png";
-import thumbnailIntelligenceEngineDb from "../../../assets/thumbnails/intelligence-engine-db-cover.png";
+import thumbnailMeldwork from "../../../assets/images/projects/meldwork/meldwork-cover.webp";
+import thumbnailRealm from "../../../assets/images/projects/realm/realm-cover.webp";
+import thumbnailEvolabeler from "../../../assets/images/projects/evolabeler/evolabeler-cover.webp";
+import thumbnailScholarSentry from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.webp";
+import thumbnailGuameow from "../../../assets/images/projects/guameow/guameow-cover.webp";
+import thumbnailTdaYolo from "../../../assets/images/projects/tda-yolo/tda-yolo-cover.webp";
 
 import type { ProjectPreview } from "../../types";
 
 export default [
   {
-    title: "智能招聘 Multi-Agent",
-    slug: "quibbo",
-    thumbnail: thumbnailQuibbo,
-    description: "HR 流程自动化的 Agentic 系统",
-  },
-  {
-    title: "LPS-YOLO 科研项目",
-    slug: "pokedex",
-    thumbnail: thumbnailPokedex,
-    description: "轻量级无人机遥感小目标检测算法",
+    title: "Meldwork",
+    slug: "meldwork",
+    thumbnail: thumbnailMeldwork,
+    description: "54 Stars · 持久化本地多 Agent 工作台",
   },
   {
     title: "Realm 3D Agent 工作台",
     slug: "realm",
     thumbnail: thumbnailRealm,
-    description: "23 Star 的 Coding Agent 实时可视化项目",
+    description: "26 Stars · Coding Agent 实时 3D 可视化",
   },
   {
     title: "EvoLabeler MLOps 引擎",
     slug: "evolabeler",
     thumbnail: thumbnailEvolabeler,
-    description: "12 Star 的遥感模型 Agent 闭环系统",
+    description: "15 Stars · 自进化遥感 MLOps 引擎",
   },
   {
     title: "ScholarSentry 学术情报",
     slug: "scholarsentry",
     thumbnail: thumbnailScholarSentry,
-    description: "6 Star 的学者图谱与科研监测界面",
+    description: "9 Stars · 学者图谱与科研监测界面",
   },
   {
     title: "Guameow 卦喵",
     slug: "guameow",
     thumbnail: thumbnailGuameow,
-    description: "4 Star 的 Z 世代 AI 玄学移动应用",
+    description: "8 Stars · Z 世代 AI 玄学移动应用",
   },
   {
-    title: "Doc2Brief",
-    slug: "doc2brief",
-    thumbnail: thumbnailDoc2Brief,
-    description: "文件/文本转模板化周报链接的平台",
-  },
-  {
-    title: "Intelligence Engine DB",
-    slug: "intelligence-engine-db",
-    thumbnail: thumbnailIntelligenceEngineDb,
-    description: "多维信源爬虫与情报数据后端",
+    title: "TDA-YOLO",
+    slug: "tda-yolo",
+    thumbnail: thumbnailTdaYolo,
+    description: "7 Stars · 自适应无人机遥感目标检测",
   },
 ] as const satisfies ProjectPreview[];

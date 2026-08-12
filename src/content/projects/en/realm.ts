@@ -1,7 +1,6 @@
-import image0 from "../../../assets/images/projects/realm/realm-cover.png";
-import image1 from "../../../assets/images/projects/realm/realm-slogan.png";
-import image2 from "../../../assets/images/projects/realm/realm-multiclaude.png";
-import image3 from "../../../assets/images/projects/realm/realm-og-image.png";
+import image0 from "../../../assets/images/projects/realm/realm-cover.webp";
+import image1 from "../../../assets/images/projects/realm/realm-chapter.webp";
+import image2 from "../../../assets/images/projects/realm/realm-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -16,7 +15,7 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Realm",
-  "description": "Realm turns Coding Agent activity from terminal logs into a real-time observable product interface. Claude Code and multi-agent actions such as file reads, code edits, shell commands, search, errors, and commits become 3D character behaviors, while Hex Zones separate concurrent sessions.<br/><br/>GitHub API check on 2026-05-27: 23 stars, 1 fork, TypeScript. The product focus is agent observability, REST task dispatch, webhook callbacks, and spatial product storytelling.",
+  "description": "Realm turns Coding Agent activity from terminal logs into a real-time observable product interface. Claude Code and multi-agent actions such as file reads, code edits, shell commands, search, errors, and commits become 3D character behaviors, while Hex Zones separate concurrent sessions.<br/><br/>GitHub API check on 2026-08-12: 26 stars, TypeScript. The product focus is agent observability, REST task dispatch, webhook callbacks, and spatial product storytelling.",
   "components": [
     {
       "type": "text",
@@ -77,7 +76,7 @@ export default {
         "type": "image",
         "src": image1,
         "alt": "Realm 3D agent workspace cover visual",
-        "caption": "Explanation visual: tool-call events becoming spatial agent actions"
+        "caption": "Chapter visual: tool-call events becoming spatial agent actions"
       }
     },
     {
@@ -86,16 +85,7 @@ export default {
         "type": "image",
         "src": image2,
         "alt": "Realm Hex Zone session diagram visual",
-        "caption": "Explanation visual: Hex Zone sessions and agent handoff topology"
-      }
-    },
-    {
-      "type": "media",
-      "props": {
-        "type": "image",
-        "src": image3,
-        "alt": "Realm API integration visual",
-        "caption": "Explanation visual: REST API task intake and webhook return path"
+        "caption": "System diagram: Hex Zones, event flow, and callback path"
       }
     }
   ]

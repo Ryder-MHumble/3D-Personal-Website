@@ -12,6 +12,7 @@ import headVertexShader from "../../shaders/avatar-head/vertex.glsl";
 import headFragmentShader from "../../shaders/avatar-head/fragment.glsl";
 import gsap from "gsap";
 import { aboutProgress } from "../../../animations/transitions/about";
+import { avatarStyle } from "./style";
 //import { avatarHologram } from "./hologram";
 
 import type { Material, Bone, Texture } from "three";
@@ -129,6 +130,7 @@ const setupMesh = () => {
   transform.add(mesh);
 
   rightHandBone = mesh.getObjectByName("bone-right-hand") as Bone;
+  avatarStyle.init(mesh.getObjectByName("headBone") as Bone);
 
   scene.instance.add(transform);
 };
@@ -166,6 +168,7 @@ const destroy = () => {
   //mesh = null;
   //transform.clear();
   face.destroy();
+  avatarStyle.destroy();
   gsap.ticker.remove(tick);
 };
 

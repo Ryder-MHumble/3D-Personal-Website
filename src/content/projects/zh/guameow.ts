@@ -1,7 +1,6 @@
-import image0 from "../../../assets/images/projects/guameow/guameow-cover.png";
-import image1 from "../../../assets/images/projects/guameow/guameow-welcome.png";
-import image2 from "../../../assets/images/projects/guameow/guameow-report.png";
-import image3 from "../../../assets/images/projects/guameow/guameow-detail.png";
+import image0 from "../../../assets/images/projects/guameow/guameow-cover.webp";
+import image1 from "../../../assets/images/projects/guameow/guameow-chapter.webp";
+import image2 from "../../../assets/images/projects/guameow/guameow-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -16,7 +15,7 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Guameow",
-  "description": "Guameow 是一个面向 Z 世代的 AI 玄学移动应用，把每日喵签、命理分析、运势预测、开运指南和猫咪陪伴感包装成轻娱乐产品。它探索的是 AI 在情绪价值、仪式感和消费级互动中的表达方式。<br/><br/>GitHub API 于 2026-05-27 核验：4 Stars、3 Forks、Dart。项目重点在于移动端视觉、人格化交互和 AI 生成解释如何形成可重复的每日使用场景。",
+  "description": "Guameow 是一个面向 Z 世代的 AI 玄学移动应用，把每日喵签、命理分析、运势预测、开运指南和猫咪陪伴感包装成轻娱乐产品。它探索的是 AI 在情绪价值、仪式感和消费级互动中的表达方式。<br/><br/>GitHub API 于 2026-08-12 核验：8 Stars、Dart。项目重点在于移动端视觉、人格化交互和 AI 生成解释如何形成可重复的每日使用场景。",
   "components": [
     {
       "type": "text",
@@ -77,7 +76,7 @@ export default {
         "type": "image",
         "src": image1,
         "alt": "Guameow 移动应用封面图",
-        "caption": "解释图：魔法猫咪与移动端运势 App 体验流"
+        "caption": "章节图：每日运势、猫咪陪伴与轻仪式闭环"
       }
     },
     {
@@ -86,16 +85,7 @@ export default {
         "type": "image",
         "src": image2,
         "alt": "Guameow 喵签卡片图",
-        "caption": "解释图：每日喵签卡片生成闭环"
-      }
-    },
-    {
-      "type": "media",
-      "props": {
-        "type": "image",
-        "src": image3,
-        "alt": "Guameow AI 指引图",
-        "caption": "解释图：个性化 AI 指引与轻娱乐仪式"
+        "caption": "产品示意：引导、每日卡片、聊天、提醒与个性化建议"
       }
     }
   ]

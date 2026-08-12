@@ -1,61 +1,47 @@
-import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
-import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
-import thumbnailRealm from "../../../assets/thumbnails/realm-cover.png";
-import thumbnailEvolabeler from "../../../assets/thumbnails/evolabeler-cover.png";
-import thumbnailScholarSentry from "../../../assets/thumbnails/scholarsentry-cover.png";
-import thumbnailGuameow from "../../../assets/thumbnails/guameow-cover.png";
-import thumbnailDoc2Brief from "../../../assets/thumbnails/doc2brief.png";
-import thumbnailIntelligenceEngineDb from "../../../assets/thumbnails/intelligence-engine-db-cover.png";
+import thumbnailMeldwork from "../../../assets/images/projects/meldwork/meldwork-cover.webp";
+import thumbnailRealm from "../../../assets/images/projects/realm/realm-cover.webp";
+import thumbnailEvolabeler from "../../../assets/images/projects/evolabeler/evolabeler-cover.webp";
+import thumbnailScholarSentry from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.webp";
+import thumbnailGuameow from "../../../assets/images/projects/guameow/guameow-cover.webp";
+import thumbnailTdaYolo from "../../../assets/images/projects/tda-yolo/tda-yolo-cover.webp";
 
 import type { ProjectPreview } from "../../types";
 
 export default [
   {
-    title: "Recruiting Multi-Agent",
-    slug: "quibbo",
-    thumbnail: thumbnailQuibbo,
-    description: "Agentic HR workflow automation",
-  },
-  {
-    title: "LPS-YOLO Research",
-    slug: "pokedex",
-    thumbnail: thumbnailPokedex,
-    description: "Lightweight remote-sensing object detection",
+    title: "Meldwork",
+    slug: "meldwork",
+    thumbnail: thumbnailMeldwork,
+    description: "54 stars · persistent local multi-Agent workspace",
   },
   {
     title: "Realm 3D Agent Workspace",
     slug: "realm",
     thumbnail: thumbnailRealm,
-    description: "23-star real-time visualization for coding agents",
+    description: "26 stars · real-time 3D visualization for coding agents",
   },
   {
     title: "EvoLabeler MLOps Engine",
     slug: "evolabeler",
     thumbnail: thumbnailEvolabeler,
-    description: "12-star AI Agent loop for remote-sensing models",
+    description: "15 stars · self-evolving remote-sensing MLOps engine",
   },
   {
     title: "ScholarSentry",
     slug: "scholarsentry",
     thumbnail: thumbnailScholarSentry,
-    description: "6-star academic intelligence and scholar graph UI",
+    description: "9 stars · academic intelligence and scholar graph UI",
   },
   {
     title: "Guameow",
     slug: "guameow",
     thumbnail: thumbnailGuameow,
-    description: "4-star Gen-Z AI fortune mobile app",
+    description: "8 stars · Gen-Z AI fortune mobile app",
   },
   {
-    title: "Doc2Brief",
-    slug: "doc2brief",
-    thumbnail: thumbnailDoc2Brief,
-    description: "File/text to templated weekly report links",
-  },
-  {
-    title: "Intelligence Engine DB",
-    slug: "intelligence-engine-db",
-    thumbnail: thumbnailIntelligenceEngineDb,
-    description: "Multi-source crawler backend for AI intelligence",
+    title: "TDA-YOLO",
+    slug: "tda-yolo",
+    thumbnail: thumbnailTdaYolo,
+    description: "7 stars · adaptive UAV remote-sensing detection",
   },
 ] as const satisfies ProjectPreview[];

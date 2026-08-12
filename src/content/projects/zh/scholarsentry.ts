@@ -1,4 +1,6 @@
-import image0 from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.png";
+import image0 from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.webp";
+import image1 from "../../../assets/images/projects/scholarsentry/scholarsentry-chapter.webp";
+import image2 from "../../../assets/images/projects/scholarsentry/scholarsentry-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -13,13 +15,13 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Scholars-System",
-  "description": "ScholarSentry 是面向学者画像、论文成果、机构关系和研究动态的学术情报前端，用来把论文仓与学者知识图谱转化为可检索、可监测、可提醒的产品界面。<br/><br/>Ryder-MHumble/ScholarSentry 在公开 GitHub API 中返回 404，因此页面使用可访问的匹配仓库 Scholars-System；GitHub API 于 2026-05-27 核验该公开仓库为 6 Stars、TypeScript。",
+  "description": "Scholars System 是面向学者画像、论文成果、机构关系和研究动态的学术情报界面，用来把论文仓与学者知识图谱转化为可检索、可监测、可提醒的产品体验。<br/><br/>GitHub API 于 2026-08-12 核验：9 Stars、TypeScript。项目重点是把分散的学术记录转化为可复用的研究监测工作流。",
   "components": [
     {
       "type": "text",
       "props": {
         "title": "项目背景",
-        "text": "学术情报不是把论文列表堆出来，而是帮助用户理解“谁在做什么、成果之间如何关联、哪些信号值得跟踪”。ScholarSentry 的定位是作为 Intelligence Engine 的可视化层，把学者、论文、机构、主题和提醒规则组织成连续的研究监测体验。"
+        "text": "学术情报不是把论文列表堆出来，而是帮助用户理解“谁在做什么、成果之间如何关联、哪些信号值得跟踪”。Scholars System 把学者、论文、机构、主题和提醒规则组织成连续的研究监测体验。"
       }
     },
     {
@@ -31,9 +33,17 @@ export default {
           "以研究监测界面展示学者、论文、机构与主题信息。",
           "作为前端层承接论文仓、学者知识图谱与信息引擎数据。",
           "围绕提醒机制组织信息架构，让新增成果能转化为及时信号。",
-          "在公开仓库 Scholars-System 的基础上保留 ScholarSentry 的产品定位。"
+          "把一次性学术检索转化为可复用的监测与对比流程。"
         ]
       }
+    },
+    {
+      "type": "media",
+      "props": { "type": "image", "src": image1, "alt": "学术情报知识图谱章节图", "caption": "章节图：学者、论文、机构与监测信号" }
+    },
+    {
+      "type": "media",
+      "props": { "type": "image", "src": image2, "alt": "学术情报系统架构示意", "caption": "示意图：数据源、学者图谱、画像与提醒" }
     },
     {
       "type": "imageText",

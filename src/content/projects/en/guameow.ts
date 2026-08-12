@@ -1,7 +1,6 @@
-import image0 from "../../../assets/images/projects/guameow/guameow-cover.png";
-import image1 from "../../../assets/images/projects/guameow/guameow-welcome.png";
-import image2 from "../../../assets/images/projects/guameow/guameow-report.png";
-import image3 from "../../../assets/images/projects/guameow/guameow-detail.png";
+import image0 from "../../../assets/images/projects/guameow/guameow-cover.webp";
+import image1 from "../../../assets/images/projects/guameow/guameow-chapter.webp";
+import image2 from "../../../assets/images/projects/guameow/guameow-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -16,7 +15,7 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Guameow",
-  "description": "Guameow is a Gen-Z AI fortune mobile app that packages daily cat fortunes, destiny analysis, luck prediction, guidance, and companion-like cat interaction into a lightweight entertainment product. It explores how AI can deliver emotional value, ritual, and consumer-facing play.<br/><br/>GitHub API check on 2026-05-27: 4 stars, 3 forks, Dart. The project focus is mobile visual design, character-led interaction, and how AI-generated explanations can become a repeatable daily use case.",
+  "description": "Guameow is a Gen-Z AI fortune mobile app that packages daily cat fortunes, destiny analysis, luck prediction, guidance, and companion-like cat interaction into a lightweight entertainment product. It explores how AI can deliver emotional value, ritual, and consumer-facing play.<br/><br/>GitHub API check on 2026-08-12: 8 stars, Dart. The project focus is mobile visual design, character-led interaction, and how AI-generated explanations can become a repeatable daily use case.",
   "components": [
     {
       "type": "text",
@@ -77,7 +76,7 @@ export default {
         "type": "image",
         "src": image1,
         "alt": "Guameow mobile app cover visual",
-        "caption": "Explanation visual: magical cat mobile fortune app flow"
+        "caption": "Chapter visual: daily fortune, companion, and ritual loop"
       }
     },
     {
@@ -86,16 +85,7 @@ export default {
         "type": "image",
         "src": image2,
         "alt": "Guameow fortune card visual",
-        "caption": "Explanation visual: daily fortune card generation loop"
-      }
-    },
-    {
-      "type": "media",
-      "props": {
-        "type": "image",
-        "src": image3,
-        "alt": "Guameow AI guidance visual",
-        "caption": "Explanation visual: personalized AI guidance and playful ritual flow"
+        "caption": "Product diagram: onboarding, daily card, chat, reminder, and guidance"
       }
     }
   ]

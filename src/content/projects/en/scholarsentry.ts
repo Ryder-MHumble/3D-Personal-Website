@@ -1,4 +1,6 @@
-import image0 from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.png";
+import image0 from "../../../assets/images/projects/scholarsentry/scholarsentry-cover.webp";
+import image1 from "../../../assets/images/projects/scholarsentry/scholarsentry-chapter.webp";
+import image2 from "../../../assets/images/projects/scholarsentry/scholarsentry-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -13,13 +15,13 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Scholars-System",
-  "description": "ScholarSentry is an academic-intelligence frontend for scholar profiles, paper outputs, institution relationships, and research movement. It turns paper repositories and scholar graphs into a searchable, monitorable, alert-oriented product surface.<br/><br/>Ryder-MHumble/ScholarSentry returned 404 from the public GitHub API, so this page uses the matched accessible repository Scholars-System; GitHub API check on 2026-05-27: 6 stars, TypeScript.",
+  "description": "Scholars System is an academic-intelligence interface for scholar profiles, paper outputs, institution relationships, and research movement. It turns paper repositories and scholar graphs into a searchable, monitorable, alert-oriented product surface.<br/><br/>GitHub API check on 2026-08-12: 9 stars, TypeScript. The case focuses on converting fragmented academic records into a reusable research-monitoring workflow.",
   "components": [
     {
       "type": "text",
       "props": {
         "title": "Context",
-        "text": "Academic intelligence is not just a list of papers; it should help users understand who is doing what, how outputs connect, and which signals deserve monitoring. ScholarSentry is positioned as the visualization layer for Intelligence Engine data, organizing scholars, papers, institutions, topics, and alert rules into a continuous research-monitoring experience."
+        "text": "Academic intelligence is not just a list of papers; it should help users understand who is doing what, how outputs connect, and which signals deserve monitoring. Scholars System organizes scholars, papers, institutions, topics, and alert rules into a continuous research-monitoring experience."
       }
     },
     {
@@ -31,9 +33,17 @@ export default {
           "Presents scholars, papers, institutions, and topics as a research-monitoring interface.",
           "Provides a frontend layer that can pair with paper warehouses and scholar knowledge graphs.",
           "Uses alert-oriented information architecture so new outputs can become timely signals.",
-          "Keeps the case aligned with the public Scholars-System repository while preserving the ScholarSentry product concept."
+          "Turns one-off academic lookup into a reusable monitoring and comparison workflow."
         ]
       }
+    },
+    {
+      "type": "media",
+      "props": { "type": "image", "src": image1, "alt": "Academic intelligence knowledge graph chapter visual", "caption": "Chapter visual: scholars, papers, institutions, and monitoring signals" }
+    },
+    {
+      "type": "media",
+      "props": { "type": "image", "src": image2, "alt": "Academic intelligence system architecture diagram", "caption": "System diagram: sources, scholar graph, profiles, and alerts" }
     },
     {
       "type": "imageText",

@@ -1,14 +1,12 @@
 import type { Locale } from "../../i18n/types";
 
 export const projectIds = [
-  "quibbo",
-  "pokedex",
+  "meldwork",
   "realm",
   "evolabeler",
   "scholarsentry",
   "guameow",
-  "doc2brief",
-  "intelligence-engine-db",
+  "tda-yolo",
 ] as const;
 
 function simplifyModules(glob: Record<string, any>) {

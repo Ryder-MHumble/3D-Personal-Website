@@ -1,7 +1,6 @@
-import image0 from "../../../assets/images/projects/realm/realm-cover.png";
-import image1 from "../../../assets/images/projects/realm/realm-slogan.png";
-import image2 from "../../../assets/images/projects/realm/realm-multiclaude.png";
-import image3 from "../../../assets/images/projects/realm/realm-og-image.png";
+import image0 from "../../../assets/images/projects/realm/realm-cover.webp";
+import image1 from "../../../assets/images/projects/realm/realm-chapter.webp";
+import image2 from "../../../assets/images/projects/realm/realm-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -16,7 +15,7 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/Realm",
-  "description": "Realm 是我把 Coding Agent 从“终端日志”转化为“实时可观察产品界面”的开源实验。它把 Claude Code 与多 Agent 协作中的读文件、写代码、运行命令、搜索、报错和提交映射为 3D 角色动作，并用 Hex Zone 区分不同任务会话。<br/><br/>GitHub API 于 2026-05-27 核验：23 Stars、1 Fork、TypeScript。这个项目的重点是 Agent 可观测性、外部 REST API 派发、Webhook 回传与空间化产品叙事。",
+  "description": "Realm 是我把 Coding Agent 从“终端日志”转化为“实时可观察产品界面”的开源实验。它把 Claude Code 与多 Agent 协作中的读文件、写代码、运行命令、搜索、报错和提交映射为 3D 角色动作，并用 Hex Zone 区分不同任务会话。<br/><br/>GitHub API 于 2026-08-12 核验：26 Stars、TypeScript。这个项目的重点是 Agent 可观测性、外部 REST API 派发、Webhook 回传与空间化产品叙事。",
   "components": [
     {
       "type": "text",
@@ -77,7 +76,7 @@ export default {
         "type": "image",
         "src": image1,
         "alt": "Realm 3D Agent 工作台封面图",
-        "caption": "解释图：工具调用事件转化为空间化 Agent 动作"
+        "caption": "章节图：工具调用事件转化为空间化 Agent 动作"
       }
     },
     {
@@ -86,16 +85,7 @@ export default {
         "type": "image",
         "src": image2,
         "alt": "Realm Hex Zone 会话结构图",
-        "caption": "解释图：Hex Zone 会话区与 Agent 交接拓扑"
-      }
-    },
-    {
-      "type": "media",
-      "props": {
-        "type": "image",
-        "src": image3,
-        "alt": "Realm API 集成链路图",
-        "caption": "解释图：REST API 任务入口与 Webhook 回传链路"
+        "caption": "示意图：Hex Zone、事件流与回调链路"
       }
     }
   ]

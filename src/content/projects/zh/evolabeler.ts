@@ -1,7 +1,6 @@
-import image0 from "../../../assets/images/projects/evolabeler/evolabeler-cover.png";
-import image1 from "../../../assets/images/projects/evolabeler/evolabeler-home.png";
-import image2 from "../../../assets/images/projects/evolabeler/evolabeler-smart-canvas.png";
-import image3 from "../../../assets/images/projects/evolabeler/evolabeler-project-details.png";
+import image0 from "../../../assets/images/projects/evolabeler/evolabeler-cover.webp";
+import image1 from "../../../assets/images/projects/evolabeler/evolabeler-chapter.webp";
+import image2 from "../../../assets/images/projects/evolabeler/evolabeler-diagram.webp";
 
 import type { ProjectContent } from "../../types";
 
@@ -18,7 +17,7 @@ export default {
   ],
   "videoBorder": false,
   "source": "https://github.com/Ryder-MHumble/EvoLabeler-AIAgent-MLOps",
-  "description": "EvoLabeler 是面向遥感目标检测的 AI Agent 驱动 MLOps 系统，覆盖数据上传、智能标注、主动学习、半监督学习、课程学习、模型训练、评估与迭代反馈。它不是单一标注工具，而是把数据生产和模型进化放进同一个闭环。<br/><br/>GitHub API 于 2026-05-27 核验：12 Stars、Python。项目重点在于让每次样本选择、标注动作、训练结果和质量评估都能成为下一轮模型改进的依据。",
+  "description": "EvoLabeler 是面向遥感目标检测的 AI Agent 驱动 MLOps 系统，覆盖数据上传、智能标注、主动学习、半监督学习、课程学习、模型训练、评估与迭代反馈。它不是单一标注工具，而是把数据生产和模型进化放进同一个闭环。<br/><br/>GitHub API 于 2026-08-12 核验：15 Stars、Python。项目重点在于让每次样本选择、标注动作、训练结果和质量评估都能成为下一轮模型改进的依据。",
   "components": [
     {
       "type": "text",
@@ -79,7 +78,7 @@ export default {
         "type": "image",
         "src": image1,
         "alt": "EvoLabeler MLOps 封面图",
-        "caption": "解释图：围绕 Agent 大脑运转的遥感 MLOps 闭环"
+        "caption": "章节图：不确定性样本选择与标注工作流"
       }
     },
     {
@@ -88,16 +87,7 @@ export default {
         "type": "image",
         "src": image2,
         "alt": "EvoLabeler 标注闭环图",
-        "caption": "解释图：主动学习样本选择与标注画布"
-      }
-    },
-    {
-      "type": "media",
-      "props": {
-        "type": "image",
-        "src": image3,
-        "alt": "EvoLabeler 训练反馈图",
-        "caption": "解释图：训练指标、模型评估与下一轮反馈"
+        "caption": "示意图：数据、训练、评估与下一轮反馈"
       }
     }
   ]
