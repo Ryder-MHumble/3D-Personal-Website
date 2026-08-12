@@ -49,7 +49,7 @@ watchEffect((onInvalidate) => {
         tl.fromTo(
           wrapperEl,
           { clipPath: "inset(0% 0% 0% 100%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "none" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" },
           0,
         );
       } else {
@@ -148,7 +148,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   &-line {
     width: 100%;
     height: 1px;
-    background-color: var(--color-cyan-400);
+    background: linear-gradient(90deg, rgba(142, 225, 255, 0.34), rgba(207, 247, 255, 0.72), rgba(142, 225, 255, 0.2));
 
     @include mixins.landscape {
       display: none;
@@ -206,6 +206,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     height: 11px;
     background-color: var(--color-cyan-400);
     border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(112, 205, 255, 0.1);
   }
 
   &::before {
@@ -216,13 +217,21 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
     right: 0;
     width: var(--line-length);
     height: 0;
-    border-top: var(--stroke-sm) solid var(--color-cyan-400);
+    border-top: var(--stroke-sm) solid rgba(142, 225, 255, 0.58);
   }
 
   &-content {
-    border: var(--stroke-sm) solid var(--color-cyan-400);
-    border-radius: var(--radius-md);
-    background: linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
+    position: relative;
+    border: var(--stroke-sm) solid rgba(118, 225, 255, 0.56);
+    border-radius: calc(var(--radius-md) + 2px);
+    background:
+      linear-gradient(180deg, rgba(9, 37, 57, 0.72), rgba(4, 21, 37, 0.48)),
+      repeating-linear-gradient(90deg, rgba(144, 220, 255, 0.055) 0 1px, transparent 1px 18px);
+    box-shadow:
+      inset 0 1px 0 rgba(234, 252, 255, 0.18),
+      0 20px 46px rgba(0, 21, 54, 0.18);
+    backdrop-filter: blur(14px) saturate(116%);
+    overflow: hidden;
 
     @include mixins.landscape {
       padding: var(--space-xs) var(--space-sm);
@@ -230,6 +239,16 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
       @include mixins.mq("md") {
         padding: var(--space-sm) var(--space-md);
       }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 32%);
+      opacity: 0.7;
+      pointer-events: none;
     }
   }
 

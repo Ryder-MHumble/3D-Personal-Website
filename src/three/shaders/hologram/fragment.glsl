@@ -18,8 +18,8 @@ void main() {
 
     float progress = 1. - getProgress();
 
-    float stripes = mod((vWorldPos.y - uTime * 0.1) * 25.0, 1.0);
-    stripes = pow(stripes, 3.0);
+    float stripes = mod((vWorldPos.y - uTime * 0.055) * 19.0, 1.0);
+    stripes = pow(stripes, 4.5);
 
     vec3 viewDir = normalize(cameraPosition - vWorldPos);
 
@@ -28,13 +28,13 @@ void main() {
 
     float holographic = stripes * fresnel;
     holographic += fresnel;
-    holographic += stripes * 0.05;
+    holographic += stripes * 0.035;
     holographic *= falloff;
     
     float dist = abs(vModelProgress - uProgress);
     float lineStrength = 1.0 - smoothstep(LINE_WIDTH - FADE_WIDTH, LINE_WIDTH + FADE_WIDTH, dist);
 
-    holographic += lineStrength * 2.;
+    holographic += lineStrength * 1.25;
 
     if(!gl_FrontFacing)
         holographic *= 0.4;

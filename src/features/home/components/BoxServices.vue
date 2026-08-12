@@ -48,7 +48,7 @@ watchEffect((onInvalidate) => {
         tl.fromTo(
           wrapperEl,
           { clipPath: "inset(0% 100% 0% 0%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "none" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.56, ease: "power3.out" },
           0,
         );
       } else {
@@ -70,9 +70,9 @@ watchEffect((onInvalidate) => {
         if (subItems.length > 0) {
           tl.fromTo(
             subItems,
-            { opacity: 0, x: 18, filter: "blur(6px)" },
-            { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.24, stagger: 0.08, ease: "power2.out" },
-            0.28,
+            { opacity: 0, x: 22, y: 10, filter: "blur(8px)" },
+            { opacity: 1, x: 0, y: 0, filter: "blur(0px)", duration: 0.48, stagger: 0.07, ease: "power3.out" },
+            0.18,
           );
         }
       } else if (isMobile && subRefs.value.length > 0) {
@@ -305,12 +305,18 @@ const experiences = computed(() => {
   }
 
   &-content {
-    border: var(--stroke-sm) solid var(--color-cyan-400);
-    border-radius: var(--radius-md);
+    position: relative;
+    border: var(--stroke-sm) solid rgba(118, 225, 255, 0.56);
+    border-radius: calc(var(--radius-md) + 2px);
     background:
-      linear-gradient(180deg, rgba(4, 28, 36, 0.72) 0%, rgba(13, 49, 57, 0.42) 100%),
-      repeating-linear-gradient(90deg, rgba(92, 255, 243, 0.08) 0 1px, transparent 1px 12px),
-      linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
+      linear-gradient(180deg, rgba(9, 37, 57, 0.86) 0%, rgba(4, 21, 37, 0.68) 100%),
+      repeating-linear-gradient(90deg, rgba(144, 220, 255, 0.055) 0 1px, transparent 1px 18px),
+      repeating-linear-gradient(0deg, rgba(144, 220, 255, 0.035) 0 1px, transparent 1px 18px);
+    box-shadow:
+      inset 0 1px 0 rgba(234, 252, 255, 0.18),
+      inset 0 -30px 80px rgba(1, 13, 28, 0.16),
+      0 24px 60px rgba(0, 21, 54, 0.22);
+    backdrop-filter: blur(16px) saturate(120%);
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
@@ -323,6 +329,18 @@ const experiences = computed(() => {
 
     @include mixins.mq("md") {
       padding: var(--space-sm) var(--space-md);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(105, 214, 255, 0.1), transparent 42%);
+      opacity: 0.72;
+      pointer-events: none;
     }
   }
 
@@ -365,11 +383,12 @@ const experiences = computed(() => {
 
   &-status {
     padding: 3px 7px;
-    border: var(--stroke-sm) solid rgba(100, 255, 244, 0.48);
+    border: var(--stroke-sm) solid rgba(142, 225, 255, 0.42);
     border-radius: 999px;
     color: var(--color-text-cyan-400);
-    box-shadow: 0 0 18px rgba(0, 255, 234, 0.28);
+    background: rgba(219, 249, 255, 0.06);
     letter-spacing: 0.1em;
+    animation: experience-status-breathe 4.8s ease-in-out infinite;
   }
 
   &-timeline {
@@ -386,7 +405,7 @@ const experiences = computed(() => {
       bottom: 6px;
       left: 14px;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(107, 255, 246, 0.86), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(154, 228, 255, 0.5), transparent);
     }
   }
 
@@ -394,11 +413,14 @@ const experiences = computed(() => {
     position: absolute;
     left: 0;
     right: 0;
-    height: 28px;
-    border-top: var(--stroke-sm) solid rgba(107, 255, 246, 0.72);
-    background: linear-gradient(to bottom, rgba(107, 255, 246, 0.18), transparent);
-    opacity: 0.76;
-    animation: experience-scan 3.6s linear infinite;
+    height: 76px;
+    background:
+      linear-gradient(90deg, transparent, rgba(180, 238, 255, 0.42), transparent),
+      linear-gradient(to bottom, transparent, rgba(100, 206, 255, 0.16), transparent);
+    filter: blur(0.4px);
+    opacity: 0;
+    transform: translateY(-54px);
+    animation: experience-scan 6.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
     pointer-events: none;
   }
 
@@ -408,11 +430,26 @@ const experiences = computed(() => {
     grid-template-columns: 12px minmax(0, 1fr);
     gap: 4px var(--space-xs);
     padding: 7px 8px 8px 0;
-    border: var(--stroke-sm) solid rgba(107, 255, 246, 0.14);
+    border: var(--stroke-sm) solid rgba(143, 222, 255, 0.16);
     border-radius: var(--radius-sm);
-    background: rgba(2, 19, 26, 0.24);
-    backdrop-filter: blur(8px);
+    background:
+      linear-gradient(180deg, rgba(190, 236, 255, 0.07), rgba(15, 47, 70, 0.2)),
+      rgba(2, 18, 31, 0.34);
+    box-shadow: inset 0 1px 0 rgba(236, 253, 255, 0.08);
+    backdrop-filter: blur(10px);
     opacity: 0;
+    transition:
+      border-color 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      background 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      border-color: rgba(179, 239, 255, 0.32);
+      background:
+        linear-gradient(180deg, rgba(190, 236, 255, 0.09), rgba(15, 47, 70, 0.2)),
+        rgba(2, 18, 31, 0.26);
+      transform: translateX(-3px);
+    }
   }
 
   &-dot {
@@ -423,9 +460,11 @@ const experiences = computed(() => {
     height: 9px;
     margin-top: 5px;
     border-radius: 50%;
-    background-color: var(--color-cyan-400);
-    box-shadow: 0 0 0 4px rgba(107, 255, 246, 0.12), 0 0 18px rgba(107, 255, 246, 0.72);
-    animation: experience-dot-pulse 1.8s ease-in-out infinite;
+    background: #9eeaff;
+    box-shadow:
+      0 0 0 4px rgba(112, 205, 255, 0.1),
+      0 0 12px rgba(112, 205, 255, 0.42);
+    animation: experience-dot-pulse 3.8s ease-in-out infinite;
   }
 
   &-experience-main {
@@ -433,7 +472,7 @@ const experiences = computed(() => {
   }
 
   &-period {
-    color: rgba(212, 255, 251, 0.64);
+    color: rgba(212, 255, 251, 0.72);
   }
 
   &-company {
@@ -450,7 +489,7 @@ const experiences = computed(() => {
   }
 
   &-role {
-    color: rgba(212, 255, 251, 0.76);
+    color: rgba(212, 255, 251, 0.82);
   }
 
   &-signal {
@@ -463,7 +502,7 @@ const experiences = computed(() => {
     grid-column: 2;
     display: -webkit-box;
     overflow: hidden;
-    color: rgba(212, 255, 251, 0.72);
+    color: rgba(212, 255, 251, 0.8);
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-height: 1.32;
@@ -477,23 +516,41 @@ const experiences = computed(() => {
 
 @keyframes experience-scan {
   0% {
-    transform: translateY(-18px);
+    opacity: 0;
+    transform: translateY(-54px);
+  }
+
+  18%,
+  62% {
+    opacity: 0.58;
   }
 
   100% {
-    transform: translateY(248px);
+    opacity: 0;
+    transform: translateY(268px);
   }
 }
 
 @keyframes experience-dot-pulse {
   0%,
   100% {
-    transform: scale(0.92);
-    opacity: 0.7;
+    transform: scale(0.94);
+    opacity: 0.72;
   }
 
   50% {
-    transform: scale(1.12);
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes experience-status-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
     opacity: 1;
   }
 }
