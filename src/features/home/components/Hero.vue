@@ -76,7 +76,7 @@ const typedPhrases = computed(() => [t("hero-typed-1"), t("hero-typed-2"), t("he
       display: flex;
       flex-direction: column;
       gap: var(--space-xs);
-      max-width: min(620px, calc(var(--svw) * 84));
+      max-width: min(510px, calc(var(--svw) * 84));
 
       @include mixins.mq("md") {
         gap: var(--space-sm);
@@ -138,24 +138,24 @@ const typedPhrases = computed(() => [t("hero-typed-1"), t("hero-typed-2"), t("he
   &-banner {
     position: absolute;
     bottom: 0;
-    right: -16px;
+    right: 4px;
     z-index: 10;
     transform: rotate(-5deg) translate(0, 65%);
 
     @include mixins.mq("sm") {
-      right: -24px;
+      right: 0;
       transform: rotate(-5deg) translate(0, 70%);
     }
 
     @include mixins.mq("lg") {
-      right: -32px;
+      right: 8px;
       transform: rotate(-5deg) translate(0, 80%);
     }
   }
 
   &-type {
     min-height: 2.45em;
-    max-width: 680px;
+    max-width: 510px;
     color: var(--color-orange-400);
     font-size: var(--font-size-xl);
     font-weight: 900;
@@ -169,7 +169,7 @@ const typedPhrases = computed(() => [t("hero-typed-1"), t("hero-typed-2"), t("he
   }
 
   &-summary {
-    max-width: 580px;
+    max-width: 480px;
     color: var(--color-text-300);
     font-size: var(--font-size-md);
     line-height: var(--line-height-copy);
