@@ -4,6 +4,7 @@ import Linkedin from "./icons/Linkedin.vue";
 import Instagram from "./icons/Instagram.vue";
 import Mail from "./icons/Mail.vue";
 import X from "./icons/X.vue";
+import Youtube from "./icons/Youtube.vue";
 import Bilibili from "./icons/Bilibili.vue";
 import Link from "./Link.vue";
 import { t } from "../i18n/utils/translate";
@@ -21,6 +22,7 @@ const icons = {
   github: Github,
   linkedin: Linkedin,
   x: X,
+  youtube: Youtube,
   instagram: Instagram,
   bilibili: Bilibili,
 } as const;

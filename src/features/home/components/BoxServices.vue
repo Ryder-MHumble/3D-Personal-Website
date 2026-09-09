@@ -200,6 +200,18 @@ const EXPERIENCE_ZH = [
 const experiences = computed(() => {
   return locale.value === "zh" ? EXPERIENCE_ZH : EXPERIENCE_EN;
 });
+
+const expandedIndexes = ref<Set<number>>(new Set());
+
+const toggleExperience = (index: number) => {
+  const next = new Set(expandedIndexes.value);
+  if (next.has(index)) {
+    next.delete(index);
+  } else {
+    next.add(index);
+  }
+  expandedIndexes.value = next;
+};
 </script>
 
 <template>
@@ -221,21 +233,32 @@ const experiences = computed(() => {
           <span class="box-services-status">LIVE</span>
         </div>
         <div class="box-services-timeline">
-          <div class="box-services-scan" aria-hidden="true"></div>
           <div
             class="box-services-experience"
-            v-for="experience in experiences"
+            :class="{ 'is-expanded': expandedIndexes.has(index) }"
+            v-for="(experience, index) in experiences"
             :key="experience.company"
             :ref="setExperienceRef"
+            role="button"
+            tabindex="0"
+            :aria-expanded="expandedIndexes.has(index)"
+            @click="toggleExperience(index)"
+            @keydown.enter.prevent="toggleExperience(index)"
+            @keydown.space.prevent="toggleExperience(index)"
           >
             <span class="box-services-dot" aria-hidden="true"></span>
             <div class="box-services-experience-main">
-              <p class="box-services-period">{{ experience.period }}</p>
               <p class="box-services-company">{{ experience.company }}</p>
-              <p class="box-services-role">{{ experience.role }}</p>
+              <p class="box-services-period">{{ experience.period }}</p>
             </div>
-            <p class="box-services-signal">{{ experience.signal }}</p>
-            <p class="box-services-detail">{{ experience.detail }}</p>
+            <p class="box-services-role">{{ experience.role }}</p>
+            <p class="box-services-signal">
+              <span class="box-services-signal-text">{{ experience.signal }}</span>
+              <span class="box-services-chevron" aria-hidden="true"></span>
+            </p>
+            <div class="box-services-detail-wrap">
+              <p class="box-services-detail">{{ experience.detail }}</p>
+            </div>
           </div>
         </div>
         <p class="box-services-footer">{{ t("experience-footer") }}</p>
@@ -245,8 +268,16 @@ const experiences = computed(() => {
 </template>
 
 <style scoped lang="scss">
+// 全新视觉：深色磨砂玻璃 + 极简编辑感时间轴
+// accent 单色，白灰做层次；无扫描线 / 网格 / 脉冲等 HUD 元素
 .box-services {
   --line-length: min(48px, calc(var(--svw) * 5));
+
+  // 时间轴几何：圆点尺寸 / 圆点到文案的间距 / 卡片左内边距
+  --accent: #67e8f9;
+  --dot-size: 7px;
+  --rail-gap: 14px;
+  --card-pad-left: 12px;
 
   position: absolute;
   bottom: var(--count-height);
@@ -284,9 +315,9 @@ const experiences = computed(() => {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    width: 11px;
-    height: 11px;
-    background-color: var(--color-cyan-400);
+    width: 9px;
+    height: 9px;
+    background-color: var(--accent);
     border-radius: 50%;
   }
 
@@ -297,7 +328,7 @@ const experiences = computed(() => {
     transform: translateY(-50%);
     left: 0;
     height: 0;
-    border-top: var(--stroke-sm) solid var(--color-cyan-400);
+    border-top: var(--stroke-sm) solid rgba(103, 232, 249, 0.6);
 
     @include mixins.landscape {
       width: var(--line-length);
@@ -305,15 +336,14 @@ const experiences = computed(() => {
   }
 
   &-content {
-    border: var(--stroke-sm) solid var(--color-cyan-400);
-    border-radius: var(--radius-md);
-    background:
-      linear-gradient(180deg, rgba(4, 28, 36, 0.72) 0%, rgba(13, 49, 57, 0.42) 100%),
-      repeating-linear-gradient(90deg, rgba(92, 255, 243, 0.08) 0 1px, transparent 1px 12px),
-      linear-gradient(to bottom, var(--color-hologram-top) 0%, var(--color-hologram-bottom) 100%);
+    border: var(--stroke-sm) solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    background: rgba(7, 12, 20, 0.6);
+    backdrop-filter: blur(20px) saturate(1.25);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
     overflow: hidden;
     padding: var(--space-sm) var(--space-md);
 
@@ -336,6 +366,8 @@ const experiences = computed(() => {
   &-title {
     font-size: var(--font-size-title-xs);
     font-weight: 700;
+    color: var(--color-white-400);
+    letter-spacing: -0.01em;
 
     @include mixins.landscape {
       font-size: var(--font-size-title-xxs);
@@ -347,29 +379,38 @@ const experiences = computed(() => {
   }
 
   &-eyebrow,
-  &-period,
-  &-role,
-  &-signal,
-  &-detail,
   &-footer,
   &-status {
     font-size: var(--font-size-xs);
   }
 
   &-eyebrow {
-    margin-bottom: 3px;
-    color: rgba(212, 255, 251, 0.66);
-    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.42);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
+  // 极简状态：小圆点 + 文字，无描边无辉光
   &-status {
-    padding: 3px 7px;
-    border: var(--stroke-sm) solid rgba(100, 255, 244, 0.48);
-    border-radius: 999px;
-    color: var(--color-text-cyan-400);
-    box-shadow: 0 0 18px rgba(0, 255, 234, 0.28);
-    letter-spacing: 0.1em;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 10px;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(103, 232, 249, 0.7);
+      animation: experience-live-blink 2.6s ease-in-out infinite;
+    }
   }
 
   &-timeline {
@@ -377,70 +418,180 @@ const experiences = computed(() => {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding-left: 8px;
 
     &::before {
       content: "";
       position: absolute;
-      top: 6px;
-      bottom: 6px;
-      left: 14px;
+      top: 12px;
+      bottom: 12px;
+      left: calc(var(--card-pad-left) + var(--dot-size) / 2);
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(107, 255, 246, 0.86), transparent);
+      background: rgba(255, 255, 255, 0.08);
     }
-  }
-
-  &-scan {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 28px;
-    border-top: var(--stroke-sm) solid rgba(107, 255, 246, 0.72);
-    background: linear-gradient(to bottom, rgba(107, 255, 246, 0.18), transparent);
-    opacity: 0.76;
-    animation: experience-scan 3.6s linear infinite;
-    pointer-events: none;
   }
 
   &-experience {
     position: relative;
     display: grid;
-    grid-template-columns: 12px minmax(0, 1fr);
-    gap: 4px var(--space-xs);
-    padding: 7px 8px 8px 0;
-    border: var(--stroke-sm) solid rgba(107, 255, 246, 0.14);
-    border-radius: var(--radius-sm);
-    background: rgba(2, 19, 26, 0.24);
-    backdrop-filter: blur(8px);
+    grid-template-columns: var(--dot-size) minmax(0, 1fr);
+    column-gap: var(--rail-gap);
+    row-gap: 3px;
+    padding: 10px 12px 11px var(--card-pad-left);
+    border: var(--stroke-sm) solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
     opacity: 0;
+    transition:
+      border-color 0.22s ease,
+      background-color 0.22s ease,
+      transform 0.2s ease;
+
+    // hover / 展开的表面层：中性白，微弱即可
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.055);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }
+
+    // 展开态的 accent 左轨
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.07);
+      background-color: rgba(255, 255, 255, 0.04);
+
+      &::after {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 0.45;
+      }
+
+      .box-services-dot {
+        border-color: var(--accent);
+        transform: scale(1.2);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      .box-services-chevron {
+        opacity: 0.9;
+      }
+    }
+
+    &:active {
+      transform: scale(0.995);
+    }
+
+    &:focus-visible {
+      outline: 1px solid rgba(103, 232, 249, 0.7);
+      outline-offset: 2px;
+    }
+
+    &.is-expanded {
+      border-color: rgba(255, 255, 255, 0.09);
+      background-color: rgba(255, 255, 255, 0.05);
+
+      &::after {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+
+      .box-services-dot {
+        border-color: var(--accent);
+        transform: scale(1.1);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      .box-services-chevron {
+        transform: rotate(225deg);
+        opacity: 0.9;
+      }
+
+      .box-services-detail-wrap {
+        max-height: 280px;
+        opacity: 1;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .box-services-detail {
+        -webkit-line-clamp: unset;
+      }
+    }
   }
 
+  // 时间轴节点：静态小圆点，hover / 展开点亮
   &-dot {
     position: relative;
     z-index: 1;
-    grid-row: 1 / 4;
-    width: 9px;
-    height: 9px;
-    margin-top: 5px;
+    grid-column: 1;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    margin-top: 6px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
     border-radius: 50%;
-    background-color: var(--color-cyan-400);
-    box-shadow: 0 0 0 4px rgba(107, 255, 246, 0.12), 0 0 18px rgba(107, 255, 246, 0.72);
-    animation: experience-dot-pulse 1.8s ease-in-out infinite;
+    background: rgba(7, 12, 20, 0.9);
+    box-shadow: 0 0 0 3px rgba(7, 12, 20, 0.9);
+    transition:
+      border-color 0.22s ease,
+      transform 0.22s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(103, 232, 249, 0.8);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
   }
 
   &-experience-main {
+    grid-column: 2;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-xs);
     min-width: 0;
   }
 
-  &-period {
-    color: rgba(212, 255, 251, 0.64);
-  }
-
   &-company {
+    flex: 1;
     overflow: hidden;
+    min-width: 0;
     color: var(--color-white-400);
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.005em;
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -449,51 +600,115 @@ const experiences = computed(() => {
     }
   }
 
-  &-role {
-    color: rgba(212, 255, 251, 0.76);
+  &-period {
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
+  &-role {
+    grid-column: 2;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: var(--font-size-xxs);
+    line-height: 1.35;
+  }
+
+  // 关键指标：accent 单色文字，前面加短线引导，不再用底色 chip
   &-signal {
     grid-column: 2;
-    color: var(--color-text-cyan-400);
-    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+    color: var(--accent);
+  }
+
+  &-signal-text {
+    flex: 0 1 auto;
+    max-width: 100%;
+    color: rgba(103, 232, 249, 0.92);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  &-signal::before {
+    content: "";
+    flex-shrink: 0;
+    width: 10px;
+    height: 1px;
+    background: rgba(103, 232, 249, 0.55);
+  }
+
+  &-chevron {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    margin-left: auto;
+    margin-top: -2px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    opacity: 0.45;
+    transform: rotate(45deg);
+    transition:
+      transform 0.3s ease,
+      opacity 0.2s ease;
+  }
+
+  &-detail-wrap {
+    grid-column: 2;
+    overflow: hidden;
+    max-height: 3em; // 收起时显示两行（12px × 1.55 ≈ 37px，此处按 12px 计）
+    font-size: 12px;
+    opacity: 0.9;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, rgba(0, 0, 0, 0.15) 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, rgba(0, 0, 0, 0.15) 100%);
+    transition:
+      max-height 0.34s ease,
+      opacity 0.3s ease;
   }
 
   &-detail {
-    grid-column: 2;
     display: -webkit-box;
     overflow: hidden;
-    color: rgba(212, 255, 251, 0.72);
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 12px;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-height: 1.32;
+    -webkit-line-clamp: 2;
+    line-height: 1.55;
   }
 
   &-footer {
-    color: rgba(212, 255, 251, 0.62);
-    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.42);
+    line-height: 1.4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .box-services-status::before {
+      animation: none;
+    }
+
+    .box-services-experience,
+    .box-services-dot,
+    .box-services-detail-wrap,
+    .box-services-chevron {
+      transition: none;
+    }
   }
 }
 
-@keyframes experience-scan {
-  0% {
-    transform: translateY(-18px);
-  }
-
-  100% {
-    transform: translateY(248px);
-  }
-}
-
-@keyframes experience-dot-pulse {
+@keyframes experience-live-blink {
   0%,
   100% {
-    transform: scale(0.92);
-    opacity: 0.7;
+    opacity: 0.4;
   }
 
   50% {
-    transform: scale(1.12);
     opacity: 1;
   }
 }
